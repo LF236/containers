@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    image: mariadb:10.7.1
+    env_file:
+      - .env
+    container_name: fac-db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3396:3306"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./mariadb/data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD_ROOT}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
