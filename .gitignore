@@ -1,2 +1,4 @@
 mariadb/mariadb
 redis-client/Users*
+redis-client/data*
+redis-client/.vscode/
